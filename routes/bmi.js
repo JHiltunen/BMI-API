@@ -1,4 +1,11 @@
 var bmi = require('../lib/bmi');
 module.exports = function (req, res, next) {
-    // TODO implementation of returning the result
+    return res.json(
+        {
+            result: {
+                bmi : bmi.getIndex(req.weight, req.height),
+                description : bmi.getDescription(bmi.getIndex(req.weight, req.height))
+            }
+        }
+    );
 };
