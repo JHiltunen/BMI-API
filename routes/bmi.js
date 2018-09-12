@@ -4,7 +4,7 @@ module.exports = function (req, res, next) {
         {
             result: {
                 bmi : bmi.getIndex(req.weight, req.height),
-                description : bmi.getDescription(bmi.getIndex(req.weight, req.height))
+                description : bmi.getDescription(bmi.getIndex(req.weight, req.height), req.lang)
             }
         }
     );
