@@ -3,20 +3,20 @@ var bmi = require('../../lib/bmi');
 
 // bmi.getIndex tests
 exports.it_should_return_number = function (done) {
-    var result = bmi.getIndex(30, 1.6);
+    var result = bmi.getIndex(30, 1.6, 'metric');
     assert.ok(result === 30/Math.pow(1.6, 2));
     return done();
 };
 
 exports.it_should_calculate_bmi_correct = function (done) {
-    var result = bmi.getIndex(30, 1.6);
+    var result = bmi.getIndex(30, 1.6, 'metric');
     assert.ok(result === 30/Math.pow(1.6, 2));
     return done();
 };
 
 exports.it_should_reject_strings = function (done) {
     var result = bmi.getIndex('kg', 'cm');
-    assert.ok(result === null);
+    assert.ok(!result);
     return done();
 };
 

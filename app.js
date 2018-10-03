@@ -3,18 +3,21 @@ var app = express();
 
 app.use(function (req, res, next) {
     var weight = parseInt(req.query.weight),
-        height = parseInt(req.query.height)
-        lang = req.query.lang;
+        height = parseInt(req.query.height),
+        lang = req.query.lang,
+        unit = req.query.unit;
     
     if (!weight || !height || isNaN(weight) || isNaN(height)) {
-        return res.status(400).end("You must specify your weight in kilos and height in meters as a query parameters");
+        return res.status(400).json({ error: "invalid parameter or parameter missing" });
     }
 
-    if (lang == null) {
+    if (!lang) {
         req.lang = "en";
     } else {
         req.lang = lang;
     }
+
+    req.unit = unit;
 
     req.weight = weight;
     req.height = height;
