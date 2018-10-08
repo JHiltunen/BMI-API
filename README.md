@@ -14,6 +14,7 @@ weight: number, required
 height: number, required
 lang: fi|en, optional, default: en
 unit: metric|imperial, optional, default: imperial
+imperial (height in inches and weight in pounds)
 
 Responses:
 
