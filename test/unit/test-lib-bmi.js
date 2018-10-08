@@ -14,6 +14,12 @@ exports.it_should_calculate_bmi_correct = function (done) {
     return done();
 };
 
+exports.it_should_calculate_imperial_bmi_correct = function (done) {
+    var result = bmi.getIndex(118, 60);
+    assert.ok(result === (118 * 703 / Math.pow(60, 2)));
+    return done();
+};
+
 exports.it_should_reject_strings = function (done) {
     var result = bmi.getIndex('kg', 'cm');
     assert.ok(!result);
