@@ -11,12 +11,14 @@ app.use(function (req, res, next) {
         return res.status(400).json({ error: "invalid parameter or parameter missing" });
     }
 
+    // lang is not defined, then the language is en (English)
     if (!lang) {
         req.lang = "en";
     } else {
         req.lang = lang;
     }
 
+    // set parameters
     req.unit = unit;
 
     req.weight = weight;
